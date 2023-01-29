@@ -31,28 +31,28 @@ static int NumberPlus()
 }
 
 //Метод заполнения массива строк с клавиатуры
-string [] FillingArrayKeyboard (string [] GetArray)
+string[] FillingArrayKeyboard(string[] GetArray)
 {
     for (int i = 0; i < GetArray.Length; i++)
     {
         Console.WriteLine($"Ведите значение элемента массива с индексом {i}");
-        GetArray [i] = Console.ReadLine();
+        GetArray[i] = Console.ReadLine();
     }
     return GetArray;
 }
 //Метод исключения из массива длинных элементов
 
-string [] DeleteLongItem (string [] GetArray, int MaxLen)
+string[] DeleteLongItem(string[] GetArray, int MaxLen)
 {
-    string [] FinalArray = new string[0];
+    string[] FinalArray = new string[0];
     int k = 0;
     for (int i = 0; i < GetArray.Length; i++)
-    {        
+    {
         int L = GetArray[i].Length;
-        if (L<=MaxLen)
+        if (L <= MaxLen)
         {
             Array.Resize(ref FinalArray, FinalArray.Length + 1);
-            FinalArray [k] = GetArray[i];
+            FinalArray[k] = GetArray[i];
             k++;
         }
     }
@@ -61,7 +61,7 @@ string [] DeleteLongItem (string [] GetArray, int MaxLen)
 }
 
 //Метод печати массива
-void PrintArray (string [] GetArray)
+void PrintArray(string[] GetArray)
 {
     Console.WriteLine($"[{string.Join(", ", GetArray)}]");
 }
@@ -70,12 +70,12 @@ void PrintArray (string [] GetArray)
 
 Console.WriteLine("Введите число элементов массива :");
 int LenArray = Convert.ToInt32(NumberPlus());
-string [] array1 = new string[LenArray];
-array1 = FillingArrayKeyboard (array1);
+string[] array1 = new string[LenArray];
+array1 = FillingArrayKeyboard(array1);
 Console.WriteLine("Исходный массив:");
-PrintArray (array1);
+PrintArray(array1);
 Console.WriteLine("Введите максимальную длину элемента:");
 int MaxLength = Convert.ToInt32(NumberPlus());
-string [] array2 = DeleteLongItem (array1, MaxLength);
+string[] array2 = DeleteLongItem(array1, MaxLength);
 Console.WriteLine($"Полученный массив c элементами не длиннее {MaxLength} символов:");
-PrintArray (array2);
+PrintArray(array2);
